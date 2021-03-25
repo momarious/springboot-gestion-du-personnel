@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
+<link rel="stylesheet" th:href="@{/css/linearicons.css}">
+<link rel="stylesheet" th:href="@{/css/font-awesome.min.css}">
+<link rel="stylesheet" th:href="@{/css/bootstrap.css}">
+<link rel="stylesheet" th:href="@{/css/magnific-popup.css}">
+<link rel="stylesheet" th:href="@{/css/jquery-ui.css}">
+<link rel="stylesheet" th:href="@{/css/nice-select.css}">
+<link rel="stylesheet" th:href="@{/css/animate.min.css}">
+<link rel="stylesheet" th:href="@{/css/owl.carousel.css}">
+<link rel="stylesheet" th:href="@{/css/main.css}">
+<link rel="stylesheet" th:href="@{/css/personnel.css}">
+<title th:text="${@environment.getProperty('spring.application.name')}"></title>
+</head>
+<body>
+	
+	<!-- #header -->
+	<div th:replace="/fragments/header :: header"></div>
+	<!-- #header -->
+
+	<!-- start banner Area -->
+	<section class="relative banner-area-bg">
+		<div class="container">
+			<div class="row d-flex align-items-center justify-content-center">
+				<div class="about-content col-lg-12">
+					<h1 class="text-white" th:text="${@environment.getProperty('spring.application.name')}"></h1>
+					<p class="text-white link-nav">
+						<a th:href="${home}">Accueil</a>
+						<span class="lnr lnr-arrow-right"></span>  <a th:href="@{/contract}">G&eacute;stion des contrats</a>
+						<span class="lnr lnr-arrow-right"></span> Modifier un contrat de travail
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End banner Area -->
+	
+	<!-- Start hot-deal Area -->
+			<section class="hot-deal-area">
+				<div class="container">
+		            <div class="row d-flex justify-content-center">
+		                <div class="col-lg-10">
+		                    <div class="section-top-border">
+								<h3 class="mb-30">
+									<a>Modifier un contrat de travail</a>
+								</h3>
+								<!-- edit -->
+								<div class="comment-form">
+									<h4 th:text="${contractForm.employee.firstname} + ' ' + ${contractForm.employee.lastname}"></h4>
+									<form th:action="@{/contract/edit}" th:object="${contractForm}" th:method="post">
+									
+										<input type="hidden" name="id" th:value="${contractForm.id}">
+ 										
+										<div class="form-group form-inline">
+											<div class="col-lg-3 right">
+												Nature
+											</div>
+											<div class="form-select col-lg-9" id="default-select2">
+												<select name="nature">
+													<option th:selected="${contractForm.nature == 'CDD'}">CDD</option>
+													<option th:selected="${contractForm.nature == 'CDI'}">CDI</option>
+													<option th:selected="${contractForm.nature == 'Stagiaire'}">Stagiaire</option>
+												</select>
+											</div>
+										</div>
+										
+										<div class="form-group form-inline">
+											<div class="col-lg-3 col-md-12 right">
+												Dur&eacute;e en cas de CDD
+											</div>
+											<div class="col-lg-9 col-md-12">
+												<input th:value="${contractForm.duration}" type="text" class="form-control" name="duration" id="duration">
+											</div>
+										</div>
+										
+										
+										<div class="form-group form-inline">
+											<div class="col-lg-3 col-md-12 right">
+												Salaire de base
+											</div>
+											<div class="col-lg-6 col-md-12">
+												<input th:value="${contractForm.baseSalary}" type="number" class="form-control" name="baseSalary" id="baseSalary">
+											</div>
+										</div>
+										
+											
+										<div class="form-group form-inline">
+											<div class="col-lg-3 col-md-12 right">
+												Prime d'anciennet&eacute;
+											</div>
+											<div class="col-lg-6 col-md-12">
+												<input th:value="${contractForm.seniorityBonus}" type="number" class="form-control" name="seniorityBonus" id="seniorityBonus">
+											</div>
+										</div>
+										
+										<div class="form-group form-inline">
+											<div class="col-lg-3 col-md-12 right">
+												Ind&eacute;mnit&eacute; de transport
+											</div>
+											<div class="col-lg-6 col-md-12">
+												<input th:value="${contractForm.transportationAllowance}" type="number" class="form-control" name="transportationAllowance" id="transportationAllowance">
+											</div>
+										</div>
+										
+										<div class="form-group form-inline">
+											<div class="col-lg-3 col-md-12 right">
+												Ind&eacute;mnit&eacute; de logement
+											</div>
+											<div class="col-lg-6 col-md-12">
+												<input th:value="${contractForm.housingAllowance}" type="number" class="form-control" name="housingAllowance" id="housingAllowance">
+											</div>
+										</div>
+										
+										<br>
+										<div class="form-group form-inline">
+											<div class="col-lg-3 right">
+												<input type="submit" class="genric-btn info radius text-uppercase" value="Enregistrer" />
+											</div>
+											<div class="col-lg-9 left">
+												<a th:href="@{/contract}" class="genric-btn primary radius text-uppercase">Annuler</a>
+											</div>
+										</div>
+		
+									</form>	
+								</div>
+								<!-- end -->
+							</div>
+		                </div>
+		            </div>	
+				</div>	
+			</section>
+			<!-- End hot-deal Area -->
+		
+	<!-- start footer Area -->
+	<div th:replace="/fragments/footer :: footer"></div>
+	<!-- End footer Area -->
+
+	<script th:src="@{/js/vendor/jquery-2.2.4.min.js}"></script>
+	<script th:src="@{/js/popper.min.js}"></script>
+	<script th:src="@{/js/vendor/bootstrap.min.js}"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
+	<script th:src="@{/js/jquery-ui.js}"></script>
+	<script th:src="@{/js/easing.min.js}"></script>
+	<script th:src="@{/js/hoverIntent.js}"></script>
+	<script th:src="@{/js/superfish.min.js}"></script>
+	<script th:src="@{/js/jquery.ajaxchimp.min.js}"></script>
+	<script th:src="@{/js/jquery.magnific-popup.min.js}"></script>
+	<script th:src="@{/js/jquery.nice-select.min.js}"></script>
+	<script th:src="@{/js/owl.carousel.min.js}"></script>
+	<script th:src="@{/js/mail-script.js}"></script>
+	<script th:src="@{/js/main.js}"></script>
+</body>
+</html>

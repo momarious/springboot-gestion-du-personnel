@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+<body>
+	<div class="col-lg-4 sidebar-widgets">
+		<div class="widget-wrap">
+
+			<div class="single-sidebar-widget user-info-widget">
+							<img src="/img/profile-pic.png" alt=""> 
+							<h4 th:text="${employee.firstname} + ' ' + ${employee.lastname}"></h4>
+						</div>
+
+		
+			<div class="single-sidebar-widget post-category-widget">
+				
+				<ul class="cat-list">
+					<li><a th:href="@{vacation}"
+						class="d-flex justify-content-between">
+							<p>Conge</p>
+					</a></li>
+					<li><a href="@{/premission}" class="d-flex justify-content-between">
+							<p>Permission</p>
+							
+					</a></li>
+					<li><a href="#" class="d-flex justify-content-between">
+							<p>Contrat</p>
+					</a></li>
+					<li><a href="#" class="d-flex justify-content-between">
+							<p>Architecture</p>
+					</a></li>
+				</ul>
+			</div>
+
+			
+		</div>
+	</div>
+</body>
+</html>

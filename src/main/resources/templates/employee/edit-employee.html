@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<!-- Mobile Specific Meta -->
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- Favicon-->
+<link rel="shortcut icon" href="img/fav.png">
+<!-- Author Meta -->
+<meta name="author" content="colorlib">
+<!-- Meta Description -->
+<meta name="description" content="">
+<!-- Meta Keyword -->
+<meta name="keywords" content="">
+<!-- meta character set -->
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
+<link rel="stylesheet" th:href="@{/css/linearicons.css}">
+<link rel="stylesheet" th:href="@{/css/font-awesome.min.css}">
+<link rel="stylesheet" th:href="@{/css/bootstrap.css}">
+<link rel="stylesheet" th:href="@{/css/magnific-popup.css}">
+<link rel="stylesheet" th:href="@{/css/jquery-ui.css}">
+<link rel="stylesheet" th:href="@{/css/nice-select.css}">
+<link rel="stylesheet" th:href="@{/css/animate.min.css}">
+<link rel="stylesheet" th:href="@{/css/owl.carousel.css}">
+<link rel="stylesheet" th:href="@{/css/main.css}">
+<link rel="stylesheet" th:href="@{/css/personnel.css}">
+<title th:text="${@environment.getProperty('spring.application.name')}"></title>
+</head>
+<body>
+	
+	<!-- #header -->
+	<div th:replace="/fragments/header :: header"></div>
+	<!-- #header -->
+
+	<!-- start banner Area -->
+	<section class="relative banner-area-bg">
+		<div class="container">
+			<div class="row d-flex align-items-center justify-content-center">
+				<div class="about-content col-lg-12">
+					<h1 class="text-white" th:text="${@environment.getProperty('spring.application.name')}"></h1>
+					<p class="text-white link-nav">
+						<a th:href="${home}">Accueil</a>
+						<span class="lnr lnr-arrow-right"></span>  <a th:href="@{/employee}">G&eacute;stion des employ&eacute;s</a>
+						<span class="lnr lnr-arrow-right"></span>  Modifier un employ&eacute;
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End banner Area -->
+	
+	<!-- Start hot-deal Area -->
+			<section class="hot-deal-area">
+				<div class="container">
+		            <div class="row d-flex justify-content-center">
+		                <div class="col-lg-10">
+		                    <div class="section-top-border">
+								<h3 class="mb-30">
+									Modifier un employ&eacute;
+								</h3>
+								<div class="comment-form">
+									<h4>Compléter les informations</h4>
+									<form th:action="@{/employee/edit}" th:object="${editEmployeeForm}" th:method="post">
+								
+										<div class="form-group form-inline">
+											<div class="col-lg-3 right">
+												Prenom<span class="required">&nbsp;&nbsp;*</span>
+											</div>
+											<div class="col-lg-9">
+												<input th:field="*{firstname}" type="text" class="form-control" name="firstname" id="firstname">
+												<span th:if="${#fields.hasErrors('firstname')}" th:errors="*{firstname}" class="form-span-error left"></span>
+											</div>
+										</div>
+										<div class="form-group form-inline">
+											<div class="col-lg-3 right">
+												Nom<span class="required">&nbsp;&nbsp;*</span>
+											</div>
+											<div class="col-lg-9">
+												<input th:field="*{lastname}" type="text" class="form-control" name="lastname" id="lastname">
+												<span th:if="${#fields.hasErrors('lastname')}" th:errors="*{lastname}" class="form-span-error left"></span>
+											</div>
+										</div>
+										
+										<div class="form-group form-inline">
+											<div class="col-lg-3 right">
+												Numero de matricule<span class="required">&nbsp;&nbsp;*</span>
+											</div>
+											<div class="col-lg-9">
+												<input th:field="*{matriculation}" type="text" class="form-control" name="matriculation" id="matriculation">
+												<span th:if="${#fields.hasErrors('matriculation')}" th:errors="*{matriculation}" class="form-span-error left"></span>
+											</div>
+										</div>
+										
+										<div class="form-group form-inline">
+											<div class="col-lg-3 right">
+												Genre
+											</div>
+											<div class="form-select col-lg-6" id="default-select2">
+												<select name="gender">
+													<option th:selected="${editEmployeeForm.gender == 'Homme'}">Homme</option>
+													<option th:selected="${editEmployeeForm.gender == 'Femme'}">Femme</option>
+												</select>
+											</div>
+										</div>
+										
+										<div class="form-group form-inline">
+											<div class="col-lg-3 right">
+												Situation familiale
+											</div>
+											<div class="form-select col-lg-6" id="default-select2">
+												<select name="maritalStatus">
+													<option th:selected="${editEmployeeForm.maritalStatus == 'Celibataire'}">Celibataire</option>
+													<option th:selected="${editEmployeeForm.maritalStatus == 'Marie(e)'}">Marie(e)</option>
+												</select>
+											</div>
+										</div>
+										
+										<div class="form-group form-inline">
+											<div class="col-lg-3 right">
+												Nombre d'enfants
+											</div>
+											<div class="col-lg-9">
+												<input type="number" class="form-control" value="0" name="numberOfChilds" id="numberOfChilds">
+											</div>
+										</div>
+										
+										<div class="form-group form-inline">
+											<div class="col-lg-3 right">
+												Date de naissance<span class="required">&nbsp;&nbsp;*</span>
+											</div>
+											<div class="col-lg-6">
+												<input th:field="*{dateOfBirth}" type="text" class="form-control date-picker" name="dateOfBirth" id="dateOfBirth" placeholder="00/00/0000">
+												<span th:if="${#fields.hasErrors('dateOfBirth')}" th:errors="*{dateOfBirth}" class="form-span-error left"></span>
+											</div>
+										</div>
+										
+										<div class="form-group form-inline">
+											<div class="col-lg-3 right">
+												Lieu de naissance<span class="required">&nbsp;&nbsp;*</span>
+											</div>
+											<div class="col-lg-9">
+												<input th:field="*{placeOfBirth}" type="text" class="form-control" name="placeOfBirth" id="placeOfBirth">
+												<span th:if="${#fields.hasErrors('placeOfBirth')}" th:errors="*{placeOfBirth}" class="form-span-error left"></span>
+											</div>
+										</div>
+		
+										<div class="form-group form-inline">
+											<div class="col-lg-3 right">
+												Lieu de r&eacute;sidence<span class="required">&nbsp;&nbsp;*</span>
+											</div>
+											<div class="col-lg-9">
+												<input th:field="*{placeOfResidence}" type="text" class="form-control" name="placeOfResidence" id="placeOfResidence">
+												<span th:if="${#fields.hasErrors('placeOfResidence')}" th:errors="*{placeOfResidence}" class="form-span-error left"></span>
+											</div>
+										</div>
+										
+										<div class="form-group form-inline">
+											<div class="col-lg-3 right">
+												Nationalit&eacute;<span class="required">&nbsp;&nbsp;*</span>
+											</div>
+											<div class="col-lg-9">
+												<input th:field="*{nationality}" type="text" class="form-control" name="nationality" id="nationality">
+												<span th:if="${#fields.hasErrors('nationality')}" th:errors="*{nationality}" class="form-span-error left"></span>
+											</div>
+										</div>
+										
+										<div class="form-group form-inline">
+												<div class="col-lg-3 right">
+												Numero CNI<span class="required">&nbsp;&nbsp;*</span>
+											</div>
+											<div class="col-lg-9">
+												<input th:field="*{nationalIdentificationNumber}" type="text" class="form-control" name="nationalIdentificationNumber" id="nationalIdentificationNumber">
+												<span th:if="${#fields.hasErrors('nationalIdentificationNumber')}" th:errors="*{nationalIdentificationNumber}" class="form-span-error left"></span>
+											</div>
+										</div>
+										
+										<div class="form-group form-inline">
+											<div class="col-lg-3 right">
+												Numero de t&eacute;l&eacute;phone<span class="required">&nbsp;&nbsp;*</span>
+											</div>
+											<div class="col-lg-9">
+												<input th:field="*{cellphone}" type="text" class="form-control" name="cellphone" id="cellphone">
+												<span th:if="${#fields.hasErrors('cellphone')}" th:errors="*{cellphone}" class="form-span-error left"></span>
+											</div>
+										</div>
+										
+										<div class="form-group form-inline">
+											<div class="col-lg-3 right">
+												Adresse &eacute;l&eacute;ctronique<span class="required">&nbsp;&nbsp;*</span>
+											</div>
+											<div class="col-lg-9">
+												<input th:field="*{email}" type="email" class="form-control" name="email" id="email">
+												<span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="form-span-error left"></span>
+											</div>
+										</div>
+										
+										<div class="form-group form-inline">
+											<div class="col-lg-3 right">Diplome</div>
+											<div class="col-lg-3"><input th:field="*{diploma}" type="text" class="form-control" name="diploma" id="diploma"></div>
+											<div class="col-lg-3 right">Profession</div>
+											<div class="col-lg-3"><input th:field="*{profession}" type="text" class="form-control" name="profession" id="profession"></div>
+										</div>
+										
+										<div class="form-group form-inline">
+											<div class="col-lg-3 right">
+												Fonction
+											</div>
+											<div class="form-select col-lg-6" id="default-select2">
+												<select name="functionID">
+														<option th:each="function: ${functions}" th:text="${function.denomination}" th:value="${function.id}"></option>
+												</select>
+											</div>
+										</div>
+											
+										<div class="form-group form-inline">
+											<div class="col-lg-3 right">
+												Service/Direction
+											</div>
+											<div class="form-select col-lg-6" id="default-select2">
+												<select name="serviceID">
+													<option th:each="service: ${services}" th:text="${service.name}" th:value="${service.id}"></option>
+												</select>
+											</div>
+										</div>
+										<br>
+										
+										<div class="form-group form-inline">
+											<div class="col-lg-3 right"><input type="submit" class="genric-btn info radius text-uppercase" value="Enregistrer" /></div>
+											<div class="col-lg-3 left"><a th:href="@{/employee}" class="genric-btn primary radius text-uppercase">Annuler</a></div>
+										</div>
+										
+									</form>
+								</div>
+							</div>
+		                </div>
+		            </div>	
+				</div>	
+			</section>
+			<!-- End hot-deal Area -->
+		
+	<!-- start footer Area -->
+	<div th:replace="/fragments/footer :: footer"></div>
+	<!-- End footer Area -->
+
+	<script th:src="@{/js/vendor/jquery-2.2.4.min.js}"></script>
+	<script th:src="@{/js/popper.min.js}"></script>
+	<script th:src="@{/js/vendor/bootstrap.min.js}"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
+	<script th:src="@{/js/jquery-ui.js}"></script>
+	<script th:src="@{/js/easing.min.js}"></script>
+	<script th:src="@{/js/hoverIntent.js}"></script>
+	<script th:src="@{/js/superfish.min.js}"></script>
+	<script th:src="@{/js/jquery.ajaxchimp.min.js}"></script>
+	<script th:src="@{/js/jquery.magnific-popup.min.js}"></script>
+	<script th:src="@{/js/jquery.nice-select.min.js}"></script>
+	<script th:src="@{/js/owl.carousel.min.js}"></script>
+	<script th:src="@{/js/mail-script.js}"></script>
+	<script th:src="@{/js/main.js}"></script>
+</body>
+</html>

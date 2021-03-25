@@ -1,0 +1,208 @@
+/*============ App  =============*/
+
+.banner-area-bg { background-color: #161720; }
+
+.center, .center-column, .top, .right, .bottom, .left { display: flex; justify-content: center; align-items: center; }
+.center-column { flex-direction: column; }
+.top { align-items: flex-start; }
+.right { justify-content: flex-end; }
+.bottom { align-items: flex-end; }
+.left { justify-content: flex-start; }
+
+/*============ Forms  =============*/
+
+.form-field-error { display: block; width: 100%; line-height: 40px; border: 1px solid #e5091c; outline: none; background: #fff; padding: 0 10px; }
+.form-span-error { color: #e5091c; }
+
+/*============ Tables  =============*/
+
+.progress-table .table-row-hoverable:hover { cursor: pointer; color: #4BD1E1; }
+
+/* table action */
+
+.progress-table .action_id { width: 2.5%; }
+.progress-table .action_date { width: 15%; }
+.progress-table .action_name { width: 47.5%; }
+.progress-table .action_user { width: 15%; }
+.progress-table .action_delete { width: 20%; }
+
+.progress-table .table-head .action_id, 
+.progress-table .table-head .action_date,
+.progress-table .table-head .action_name, 
+.progress-table .table-head .action_user,
+.progress-table .table-head .action_delete { color: #222222; line-height: 40px; text-transform: uppercase; font-weight: 500; }
+
+.progress-table .table-row .action_id, 
+.progress-table .table-row .action_date, 
+.progress-table .table-row .action_name, 
+.progress-table .table-row .action_user, 
+.progress-table .table-row .action_delete { display: flex; align-items: center; }
+
+/* table function */
+
+.progress-table .function_id { width: 2.5%;}
+.progress-table .function_description { width: 52.5%; }
+.progress-table .function_name { width: 20%; }
+.progress-table .function_action { width: 25%; }
+
+.progress-table .table-head .function_id, 
+.progress-table .table-head .function_description,
+.progress-table .table-head .function_name, 
+.progress-table .table-head .function_action { color: #222222; line-height: 40px; text-transform: uppercase; font-weight: 500; }
+
+.progress-table .table-row .function_id, 
+.progress-table .table-row .function_description, 
+.progress-table .table-row .function_name, 
+.progress-table .table-row .function_action { display: flex; align-items: center; }
+
+/* table vacation */
+
+.progress-table .vacation_employee { width: 25%;}
+.progress-table .vacation_demand { width: 17.5%; }
+.progress-table .vacation_start { width: 17.5%; }
+.progress-table .vacation_duration { width: 15%; }
+.progress-table .vacation_action { width: 25%; }
+
+.progress-table .table-head .vacation_employee, 
+.progress-table .table-head .vacation_demand,
+.progress-table .table-head .vacation_start, 
+.progress-table .table-head .vacation_duration, 
+.progress-table .table-head .vacation_action { color: #222222; line-height: 40px; text-transform: uppercase; font-weight: 500; }
+
+.progress-table .table-row .vacation_employee, 
+.progress-table .table-row .vacation_demand, 
+.progress-table .table-row .vacation_start,  
+.progress-table .table-row .vacation_duration, 
+.progress-table .table-row .vacation_action { display: flex; align-items: center; }
+
+/* table service */
+
+.progress-table .service_id { width: 2.5%;}
+.progress-table .service_dpt { width: 37.5%;}
+.progress-table .service_cell { width: 15%; }
+.progress-table .service_nb { width: 20%; }
+.progress-table .service_action { width: 25%; }
+
+.progress-table .table-head .service_id, 
+.progress-table .table-head .service_dpt, 
+.progress-table .table-head .service_cell,
+.progress-table .table-head .service_nb,  
+.progress-table .table-head .service_action { color: #222222; line-height: 40px; text-transform: uppercase; font-weight: 500; }
+
+.progress-table .table-row .service_id,
+.progress-table .table-row .service_dpt, 
+.progress-table .table-row .service_cell, 
+.progress-table .table-row .service_nb,   
+.progress-table .table-row .service_action { display: flex; align-items: center; }
+
+/* user service */
+
+.progress-table .user_id { width: 2.5%;}
+.progress-table .user_login { width: 50%;}
+.progress-table .user_group { width: 22.5%; }
+.progress-table .user_action { width: 25%; }
+
+.progress-table .table-head .user_id, 
+.progress-table .table-head .user_login,
+.progress-table .table-head .user_group,  
+.progress-table .table-head .user_action { color: #222222; line-height: 40px; text-transform: uppercase; font-weight: 500; }
+
+.progress-table .table-row .user_id,
+.progress-table .table-row .user_login, 
+.progress-table .table-row .user_group, 
+.progress-table .table-row .user_action { display: flex; align-items: center; }
+
+
+/* table contract */
+
+.progress-table .contract_id { width: 2.5%;}
+.progress-table .contract_employee { width: 25%;}
+.progress-table .contract_function { width: 22.5%;}
+.progress-table .contract_nature { width: 10%; }
+.progress-table .contract_salary { width: 15%; }
+.progress-table .contract_action { width: 25%; }
+
+.progress-table .table-head .contract_id, 
+.progress-table .table-head .contract_employee, 
+.progress-table .table-head .contract_function,
+.progress-table .table-head .contract_nature, 
+.progress-table .table-head .contract_salary,  
+.progress-table .table-head .contract_action { color: #222222; line-height: 40px; text-transform: uppercase; font-weight: 500; }
+
+.progress-table .table-row .contract_id,
+.progress-table .table-row .contract_employee,
+.progress-table .table-row .contract_function, 
+.progress-table .table-row .contract_nature, 
+.progress-table .table-row .contract_salary, 
+.progress-table .table-row .contract_action { display: flex; align-items: center; }
+
+/* table sanction */
+
+.progress-table .sanction_id { width: 2.5%;}
+.progress-table .sanction_employee { width: 25%;}
+.progress-table .sanction_reason { width: 32.5%; }
+.progress-table .sanction_date { width: 15%; }
+.progress-table .sanction_action { width: 25%; }
+
+.progress-table .table-head .sanction_id, 
+.progress-table .table-head .sanction_employee,
+.progress-table .table-head .sanction_reason, 
+.progress-table .table-head .sanction_date,  
+.progress-table .table-head .sanction_action { color: #222222; line-height: 40px; text-transform: uppercase; font-weight: 500; }
+
+.progress-table .table-row .sanction_id,
+.progress-table .table-row .sanction_employee, 
+.progress-table .table-row .sanction_reason, 
+.progress-table .table-row .sanction_date, 
+.progress-table .table-row .sanction_action { display: flex; align-items: center; }
+
+/* table employee */
+
+.progress-table .employee_id { width: 2.5%;}
+.progress-table .employee_matri { width: 15%;}
+.progress-table .employee_name { width: 22.5%; }
+.progress-table .employee_funct { width: 20%; }
+.progress-table .employee_date { width: 15%; }
+.progress-table .employee_action { width: 25%; }
+
+.progress-table .table-head .employee_id, 
+.progress-table .table-head .employee_matri,
+.progress-table .table-head .employee_name,
+.progress-table .table-head .employee_funct, 
+.progress-table .table-head .employee_date,  
+.progress-table .table-head .employee_action { color: #222222; line-height: 40px; text-transform: uppercase; font-weight: 500; }
+
+.progress-table .table-row .employee_id,
+.progress-table .table-row .employee_matri,
+.progress-table .table-row .employee_name, 
+.progress-table .table-row .employee_funct, 
+.progress-table .table-row .employee_date, 
+.progress-table .table-row .employee_action { display: flex; align-items: center; }
+
+/* table permission */
+
+.progress-table .permission_id { width: 2.5%;}
+.progress-table .permission_employee { width: 20%;}
+.progress-table .permission_reason { width: 22.5%; }
+.progress-table .permission_start { width: 15%; }
+.progress-table .permission_end { width: 15%; }
+.progress-table .permission_action { width: 25%; }
+
+.progress-table .table-head .permission_id, 
+.progress-table .table-head .permission_employee,
+.progress-table .table-head .permission_reason,
+.progress-table .table-head .permission_start, 
+.progress-table .table-head .permission_end,  
+.progress-table .table-head .permission_action { color: #222222; line-height: 40px; text-transform: uppercase; font-weight: 500; }
+
+.progress-table .table-row .permission_id,
+.progress-table .table-row .permission_employee,
+.progress-table .table-row .permission_reason, 
+.progress-table .table-row .permission_start, 
+.progress-table .table-row .permission_end, 
+.progress-table .table-row .permission_action { display: flex; align-items: center; }
+
+.required {
+	color: #E66686;
+	font-weight: bold;
+}

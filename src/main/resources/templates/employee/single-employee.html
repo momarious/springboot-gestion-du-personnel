@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
+<link rel="stylesheet" th:href="@{/css/linearicons.css}">
+<link rel="stylesheet" th:href="@{/css/font-awesome.min.css}">
+<link rel="stylesheet" th:href="@{/css/bootstrap.css}">
+<link rel="stylesheet" th:href="@{/css/magnific-popup.css}">
+<link rel="stylesheet" th:href="@{/css/jquery-ui.css}">
+<link rel="stylesheet" th:href="@{/css/nice-select.css}">
+<link rel="stylesheet" th:href="@{/css/animate.min.css}">
+<link rel="stylesheet" th:href="@{/css/owl.carousel.css}">
+<link rel="stylesheet" th:href="@{/css/main.css}">
+<link rel="stylesheet" th:href="@{/css/personnel.css}">
+<title th:text="${@environment.getProperty('spring.application.name')}"></title>
+</head>
+<body>
+	
+	<!-- #header -->
+	<div th:replace="/fragments/header :: header"></div>
+	<!-- #header -->
+
+	<!-- start banner Area -->
+	<section class="relative banner-area-bg">
+		<div class="container">
+			<div class="row d-flex align-items-center justify-content-center">
+				<div class="about-content col-lg-12">
+					<h1 class="text-white" th:text="${@environment.getProperty('spring.application.name')}"></h1>
+					<p class="text-white link-nav">
+					<a th:href="${home}">Accueil</a>
+						</p>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End banner Area -->
+	
+	<!-- Start hot-deal Area -->
+	<section class="post-content-area single-post-area">
+		<div class="container">
+			<div class="row">
+				
+				<div class="col-lg-4 sidebar-widgets">
+					<div class="widget-wrap">
+						
+						<div class="single-sidebar-widget user-info-widget">
+							<img src="/img/profile-pic.png" alt=""> 
+						<br>
+						<br>
+							<h4 th:text="${employee.firstname} + ' ' + ${employee.lastname}"></h4>
+						</div>
+					
+						
+						<div class="single-sidebar-widget post-category-widget">
+							<ul class="cat-list">
+								<li>
+									<a href="#employee" class="d-flex justify-content-between">
+									Employee</a>
+								</li>
+								<li><a href="#contract" class="d-flex justify-content-between">
+										Contrat</a>
+										
+								</li>
+								<li><a href="#permission" class="d-flex justify-content-between">
+									Permission
+								</a></li>
+								<li><a href="#sanction" class="d-flex justify-content-between">
+									Sanction
+								</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				
+				<!-- #sidebar -->
+				
+				<!-- #content -->
+				<div class="col-lg-8 posts-list">
+					<div class="section-top-border">
+						<h3 class="mb-30">
+							Informations sur l'employee
+						</h3>
+						
+						<!-- Start contact-page Area -->
+						<section class="destinations-area">
+							<div class="container">
+								<div class="row center">
+									<div class="col-lg-12">
+									
+									<!-- Informations personnelles -->
+									<div id="employee" class="single-destinations">
+										<div class="details">
+											<h4 class="mb-20 text-center">Informations personnelles</h4>
+											<h4 class="d-flex justify-content-between">
+												<span><a  style="color:#e5091c" th:text="${employee.firstname}  + ' ' + ${employee.lastname}"></a></span>                              												
+												<div class="star">
+													<p th:utext="'N&ordm; ' +${employee.matriculation}"></p>
+												</div>	
+											</h4>
+												
+											<ul class="package-list">
+												<li class="d-flex justify-content-between align-items-center">
+													<span>Date de naissance</span>
+													<span><a th:text="${employee.dateOfBirth}"></a></span>
+												</li>
+												<li class="d-flex justify-content-between align-items-center">
+													<span>Lieu de naissance</span>
+													<span><a th:text="${employee.placeOfBirth}"></a></span>
+												</li>
+												<li class="d-flex justify-content-between align-items-center">
+													<span>Genre</span>
+													<span><a th:text="${employee.gender}"></a></span>
+												</li>
+												<li class="d-flex justify-content-between align-items-center">
+													<span>Addresse de residence</span>
+													<span><a th:text="${employee.placeOfResidence}"></a></span>
+												</li>
+												<li class="d-flex justify-content-between align-items-center">
+													<span>Situation familiale</span>
+													<span><a th:text="${employee.maritalStatus}"></a></span>
+												</li>
+												<li class="d-flex justify-content-between align-items-center">
+													<span>nombre d'enfants</span>
+													<span><a th:text="${employee.numberOfChilds}"></a></span>
+												</li>
+												<li class="d-flex justify-content-between align-items-center">
+													<span>Telephone</span>
+													<span><a th:text="${employee.cellphone}"></a></span>
+												</li>
+												<li class="d-flex justify-content-between align-items-center">
+													<span>Addresse electronique</span>
+													<span><a th:text="${employee.email}"></a></span>
+												</li>									
+												<li class="d-flex justify-content-between align-items-center">
+													<span>N de carte  d'identite</span>
+													<a class="price-btn" th:text="${employee.nationalIdentificationNumber}"></a>
+												</li>													
+											</ul>
+										</div>
+									</div>
+									
+									<!-- Contrat de travail -->
+									<div id="contract" th:if="${contract != null}" class="single-destinations">
+										<div class="details">
+										<h4 class="mb-20 text-center">Contrat de travail</h4>
+											<ul class="package-list">
+												<li class="d-flex justify-content-between align-items-center">
+													<span>Nature du contrat</span>
+													<span><a th:text="${contract.nature}"></a></span>
+												</li>
+												<li class="d-flex justify-content-between align-items-center">
+													<span>Fonction</span>
+													<span><a th:text="${employee.function.denomination}"></a></span>
+												</li>
+												<li class="d-flex justify-content-between align-items-center">
+													<span>Date de debut</span>
+													<span><a th:text="${contract.startDate}"></a></span>
+												</li>
+												<li class="d-flex justify-content-between align-items-center">
+													<span>Duree</span>
+													<span><a th:text="${contract.duration}"></a></span>
+												</li>
+												<li class="d-flex justify-content-between align-items-center">
+													<span>Salaire de base</span>
+													<a class="price-btn" th:text="${contract.baseSalary}"></a>
+												</li>													
+											</ul>
+										</div>
+									</div>
+									
+									<!-- Permissions de travail -->
+									<div id="permission" th:if="${permissions != null}" class="single-destinations">
+										<div class="details">
+										<h4 class="mb-20 text-center">Permissions</h4>
+											<ul th:each="permission: ${permissions}" class="package-list" style="border-bottom: 1px solid #F8B600">
+												<li class="d-flex justify-content-between align-items-center">
+													<span>Duree</span>
+													<span><a th:text="${permission.startDate} + ' au ' +  ${permission.endDate}"></a></span>
+												</li>
+												<li class="d-flex justify-content-between align-items-center">
+													<span>Raison</span>
+													<span><a th:text="${permission.reason}"></a></span>
+												</li>
+											</ul>
+										</div>
+									</div>
+								
+									<!-- Sanctions -->
+									<div id="sanstion" th:if="${sanctions != null}" class="single-destinations">
+										<div class="details">
+										<h4 class="mb-20 text-center">Sanctions</h4>
+											<ul th:each="sanction: ${sanctions}" class="package-list" style="border-bottom: 1px solid #F8B600">
+												<li class="d-flex justify-content-between align-items-center">
+													<span>Date</span>
+													<span><a th:text="${sanction.date}"></a></span>	</li>
+												<li class="d-flex justify-content-between align-items-center">
+													<span>Raison</span>
+													<span><a th:text="${sanction.reason}"></a></span>
+												</li>
+											</ul>
+										</div>
+									</div>
+								
+									
+								
+								</div>	
+							</div>
+						</div>	
+					</section>
+					<!-- End contact-page Area -->
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End hot-deal Area -->
+		
+	<!-- start footer Area -->
+	<div th:replace="/fragments/footer :: footer"></div>
+	<!-- End footer Area -->
+
+	<script th:src="@{/js/vendor/jquery-2.2.4.min.js}"></script>
+	<script th:src="@{/js/popper.min.js}"></script>
+	<script th:src="@{/js/vendor/bootstrap.min.js}"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
+	<script th:src="@{/js/jquery-ui.js}"></script>
+	<script th:src="@{/js/easing.min.js}"></script>
+	<script th:src="@{/js/hoverIntent.js}"></script>
+	<script th:src="@{/js/superfish.min.js}"></script>
+	<script th:src="@{/js/jquery.ajaxchimp.min.js}"></script>
+	<script th:src="@{/js/jquery.magnific-popup.min.js}"></script>
+	<script th:src="@{/js/jquery.nice-select.min.js}"></script>
+	<script th:src="@{/js/owl.carousel.min.js}"></script>
+	<script th:src="@{/js/mail-script.js}"></script>
+	<script th:src="@{/js/main.js}"></script>
+</body>
+</html>
